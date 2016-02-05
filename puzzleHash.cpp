@@ -178,10 +178,12 @@ bool init(void)
 void render(void)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear The Screen And The Depth Buffer
-    glLoadIdentity();
+    glTranslatef(0.0f,0.0f,-7.0f);
     std::string listSizeString = std::to_string(listSize);
     char const *pListSize = listSizeString.c_str();
-    outTextXY(0.0f,8.0f, pListSize);
+    outTextXY(-5.5f,6.0f, pListSize);
+    glLoadIdentity();
+      
 
     for (int i = 0; i < 3; ++i)
     {   
