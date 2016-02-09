@@ -206,7 +206,7 @@ void render(void)
         {
             int num = (*iterator)->puzzle[2-i][j];
             glTranslatef(3.5f,0.0f,0.0f);
-            glColor3f(red[num] ,green[num] ,blue[num]);              // Set The Color To Blue One Time Only
+            glColor3f(red[(num+8)%9] ,green[(num+8)%9] ,blue[(num+8)%9]);              // Set The Color To Blue One Time Only
             glBegin(GL_QUADS);                  // Start Drawing Quads
             glVertex3f(-1.0f, 1.0f, 0.0f);          // Left And Up 1 Unit (Top Left)
             glVertex3f( 1.0f, 1.0f, 0.0f);          // Right And Up 1 Unit (Top Right)
