@@ -177,11 +177,23 @@ bool init(void)
 
 void render(void)
 {
+	char result[100];
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear The Screen And The Depth Buffer
     glTranslatef(0.0f,0.0f,-7.0f);
+
+    std::string counterString = std::to_string(counter);
+    char const *pListCounter = counterString.c_str();
+
     std::string listSizeString = std::to_string(listSize);
     char const *pListSize = listSizeString.c_str();
-    outTextXY(-5.5f,6.0f, pListSize);
+
+    strcpy(result, pListCounter);
+    strcat(result, "/");
+    strcat(result, pListSize);
+
+    outTextXY(-4.5f,6.0f, result);
+    outTextXY(-7.0f,-13.0f, "Press space bar");
     glLoadIdentity();
       
 
@@ -231,7 +243,7 @@ void keyboard(unsigned char key, int x, int y)
         case 27:        // When Escape Is Pressed...
             exit(0);    // Exit The Program
             break;          // Ready For Next Case
-        case 97:
+        case 32:
             if(counter < listSize){
                 counter++;
                 iterator++;
@@ -259,7 +271,7 @@ int main(int argc, char** argv){
 
 
     glutInitWindowSize(500, 500);                // Window Size If We Start In Windowed Mode
-    glutCreateWindow("NeHe's OpenGL Framework"); // Window Title
+    glutCreateWindow("8 Puzzle"); // Window Title
     init();                                          // Our Initialization
  
     //glViewport(0,0,500,500);

@@ -1,0 +1,1 @@
+g++ puzzleHash.cpp libreria.cpp -std=c++11 -lglut -lGL -lGLU
